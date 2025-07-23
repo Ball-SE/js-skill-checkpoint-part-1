@@ -17,5 +17,19 @@ const products = [
   },
 ];
 
-const promotionCode = "";
+const promotionCode = "SALE50";
 // เริ่มเขียนโค้ดตรงนี้
+function calculateTotalPrice (product, promotion){
+  let total =0;
+  for(let item of product){
+    total += item.price * item.quantity;
+  }
+  if(promotion === "SALE50"){
+    total = total*0.5;
+  }else if(promotion === "SALE20"){
+    total = total*0.8;
+  }
+  return total;
+}
+
+console.log(calculateTotalPrice(products,promotionCode));
